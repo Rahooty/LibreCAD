@@ -106,8 +106,7 @@ void RS_ActionDrawLineTangent2::mouseMoveEvent(QMouseEvent* e) {
 	circle2->setHighlighted(true);
 	graphicView->drawEntity(circle2);
 	RS_Creation creation(nullptr, nullptr);
-    RS_Vector mouse(graphicView->toGraphX(e->x()),
-                    graphicView->toGraphY(e->y()));
+    RS_Vector mouse{graphicView->toGraph(e->position())};
     tangent.reset(creation.createTangent2(mouse,
                                           circle1,
                                           circle2));
